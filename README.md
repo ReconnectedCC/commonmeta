@@ -19,6 +19,14 @@ dependencies {
   implementation include("ovh.sad:commonmeta:0.1")
 }
 ```
+#### Warning to Vite/SvelteKit users!
+Make sure you're using
+```
+	optimizeDeps: {
+		exclude: ['commonmeta']
+	},
+```
+to not optimize out wasm-pack imports.
 
 ### how 2 build
 #### build for rust
