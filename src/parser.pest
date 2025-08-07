@@ -1,0 +1,21 @@
+WHITESPACE = _{ " " | "\t" }
+
+// A statement is a sequence of semicolons and pairs
+statement = { (semicolon | pair)+ }
+
+// Explicit semicolon token
+semicolon = { ";" }
+
+// A pair can be key=value or just a key
+pair = { key_value | key_only }
+key_value = { key ~ "=" ~ value }
+key_only = { key }
+
+// Key definition - now includes @ for email addresses
+key = @{ (ASCII_ALPHANUMERIC | "_" | "." | "-" | "@")+ }
+
+// Value definition - anything except semicolon or newline
+value = @{ (!(";" | NEWLINE | EOI) ~ ANY)+ }
+
+// Root rule
+file = { SOI ~ (statement ~ NEWLINE*)* ~ EOI }

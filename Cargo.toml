@@ -1,0 +1,49 @@
+[package]
+name = "commonmeta"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "commonmeta"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pest = "2.7"
+pest_derive = "2.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dependencies.serde-wasm-bindgen]
+version = "0.4"
+optional = true
+
+# WASM dependencies
+[dependencies.wasm-bindgen]
+version = "0.2"
+features = ["serde-serialize"]
+optional = true
+
+[dependencies.js-sys]
+version = "0.3"
+optional = true
+
+[dependencies.web-sys]
+version = "0.3"
+features = ["console"]
+optional = true
+
+# JNI dependencies
+[dependencies.jni]
+version = "0.21"
+optional = true
+
+[features]
+default = []
+wasm = ["wasm-bindgen", "js-sys", "web-sys", "serde-wasm-bindgen"]
+jni = ["dep:jni"]
+
+# WASM build target
+[[bin]]
+name = "wasm-build"
+path = "src/wasm.rs"
+required-features = ["wasm"]

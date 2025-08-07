@@ -1,0 +1,25 @@
+{
+  "name": "typescript-wasm-project",
+  "version": "1.0.0",
+  "description": "A TypeScript project with native WASM build",
+  "main": "index.ts",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "tsc && node test.ts",
+    "build": "tsc"
+  },
+  "files": [
+    "index.ts",
+    "index.d.ts",
+    "pkg/"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.ts"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
