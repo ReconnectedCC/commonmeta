@@ -4,7 +4,9 @@ import init, {
   parse_pairs,
   validate,
   get_error
-} from './pkg/commonmeta.js';
+} from './pkg/commonmeta.js?init';
+
+import wasmUrl from './pkg/commonmeta_bg.wasm?url'; // static URL to binary asset
 
 export interface ParseResult {
   pairs: Record<string, string>;
@@ -17,7 +19,11 @@ export class CommonMeta {
 
   static async initialize() {
     if (!this.initialized) {
-      await init();
+      if (import.meta.env.MODE) { // TODO: this is most likely Vite
+        await init(wasmUrl);
+      } else {
+        await init();
+      }
       this.initialized = true;
     }
   }
