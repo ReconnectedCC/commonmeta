@@ -1,7 +1,7 @@
 {
-  "name": "typescript-wasm-project",
-  "version": "1.0.0",
-  "description": "A TypeScript project with native WASM build",
+  "name": "commonmeta",
+  "version": "1.0.2",
+  "description": "CommonMeta (for Kromer) parser written in Rust",
   "main": "index.ts",
   "types": "index.d.ts",
   "scripts": {
@@ -11,7 +11,7 @@
   "files": [
     "index.ts",
     "index.d.ts",
-    "pkg/"
+    "pkg/*"
   ],
   "exports": {
     ".": {

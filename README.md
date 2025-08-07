@@ -5,6 +5,8 @@ for Kromer use internally but should work with anything else
 use one of the bindings, or rust. no docs yet, read the src.
 the rust src has tests, same with the typescript one. java is the exact same
 
+It is published at https://npmjs.com/package/commonmeta and also at https://repo.sad.ovh. Maven instructions soonTM.
+
 ### how 2 build
 #### build for rust
 just include lib.rs dude
