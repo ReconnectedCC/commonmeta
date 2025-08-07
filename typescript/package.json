@@ -1,6 +1,6 @@
 {
   "name": "commonmeta",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CommonMeta (for Kromer) parser written in Rust",
   "main": "index.ts",
   "types": "index.d.ts",
