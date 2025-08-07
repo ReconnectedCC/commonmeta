@@ -3,8 +3,10 @@ import init, {
   parse_pairs,
   validate,
   get_error
+//@ts-expect-error This URL is only used when using Vite
 } from './pkg/commonmeta.js?init';
 
+//@ts-expect-error This URL is only used when using Vite
 import wasmUrl from './pkg/commonmeta_bg.wasm?url'; // static URL to binary asset
 
 export interface ParseResult {
@@ -28,6 +30,7 @@ export class CommonMeta {
       return;
     }
     this.initializingPromise = (async () => {
+      //@ts-expect-error Vite detection.
       if (import.meta.env && import.meta.env.MODE) { // TODO: this is most likely Vite
         await init(wasmUrl);
       } else {

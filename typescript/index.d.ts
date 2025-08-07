@@ -11,6 +11,12 @@ export declare class CommonMeta {
   static parseToJson(input: string): Promise<string>;
   static validate(input: string): Promise<boolean>;
   static getError(input: string): Promise<string | null>;
+
+  static parseSync(input: string): ParseResult;
+  static parsePairsSync(input: string): Record<string, string> | null;
+  static parseToJsonSync(input: string): string;
+  static validateSync(input: string): boolean;
+  static getErrorSync(input: string): string | null;
 }
 
 export default CommonMeta;
